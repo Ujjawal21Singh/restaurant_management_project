@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Menu</title></head>
+    <body style="text-align: center; font-family: Arial, sans-serif">
+        <h1>Our Menu</h1>
+        <ui style="list-style: none; padding: 0;">
+            {% for item in menu_item %}
+            <li style="padding: 10px; fornt-size: 18px;">
+                {{item.name}} - {{item.price}}
+            </li>
+            {% endfor %}
+        </ui>
+        <a href="/" style="text-decorotion: none; color: blue;">Back to Home</a>
+    </body>
+</html>
