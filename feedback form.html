@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Feedback Form</title></head>
+    <body>
+        <h1>Restaurant Feedback Form</h1>
+        <div class="form-box">
+            <div class= "textup">
+                <i class="fa fa-solid fa-clock"></i>
+                It only takes few minutes!!
+            </div>
+            <form>
+                <label for="unmae">
+                    <i class="fa fa-solid fa-user"></i>
+                    Name
+                </label>
+                <input type="text" id="uname"
+                        nmae="uname" required>
+                <label for="email">
+                    <i class="fa fa-solid fa-phone"></i>
+                    Phone Number
+                </label>
+                <input type="tel" id="phone"
+                    name="phone" required>
+                <div class"radio-group">
+                    <input type="radio" id="yes"
+                            name="satisfy" value="yes" checked>
+                    <label for="yes">yes</label>
+
+                    <input type="radio" id="no"
+                            name="satisfy" value="no">
+                    <label for="no">No</label>
+                </div>
+
+                <label for="msg">
+                    <i class="fa-solid fa-comments"
+                        style="margin-right: 3px;"></i>
+                    Write your suggestions:
+                </label>
+                <textarea for="msg" name="msg"
+                            raws="4" cols="10" required>
+                </textarea>
+                <button type="submit">
+                    submit
+                </button>
+            </form>
+        </div>
+    </body>
+</html>
