@@ -68,11 +68,7 @@
             <h1>Welcome to our {restaurant.name}</h1>
             <p>Discover our delicious menu and enjoy your meal!</p>
         </main>
-        <footer style = "text-align : center; padding: 15px; background-color: #f1f1f1: margin-top: 30px";>
-            <p>&copy; <span id="year"></span>All rights reserved.</p>
-        <script>
-            //set current year dynamically
-            document.getElementByID("year").textContent = new Date().getFullYear();
-        </script>
+        
+        {% include footer.html %}
     </body>
 </html>
