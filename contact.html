@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head><title>Contact Us</title></head>
-    <body style="font-family: Arial, sans-serif; backgroubd-color: #f9f9f9; padding: 40px; color: #333;">
-
+    <body>
+    <form style="font-family: Arial, sans-serif; backgroubd-color: #f9f9f9; padding: 40px; color: #333;">
         <h1 style="text-align: center;">Contact Us</h1>
 
-        <div style="max-widht: 600px; margin: 0 auto; backgroubd-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1">
-            <p><strong>Address:</strong> 123 Number, ABC Street, XYZ city</p>
-            {% if phone_number %}
-                <p>Call US at: {{phone_number}}</p>
-            {% else %}
-                <p>Phone number not available</p>
-            {% endif %}
-            <p><strong>Email</strong>Contact@restaurantname.com</p>
-            <p><strong>Opening Hours</strong>Monday-Sunday</p>
-        </div>
+        <form id="ContactForm" action = "#" methode="post" style= "max-widht: 400px; margin: auto; text-align: left;">
+            {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder = "Your Name" style="width: 100%; padding: 8px; margin-bottom: 10px"><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" placeholder="Your Messsage" style="width: 100%; padding: 8px; margin-bottom: 10px"></textarea><br>
+
+        <button type="submit" style="padding: 10px 20px; backgroubd-color: #ff6600; border: none; color: white; cursor: pointer:">Send</button>
+    </form>
+
+    <script>
+        document.getElementById("contractForm").addEventListener("Submit", function(event){
+        const name = document.getElementById("name").valur.trim();
+        const email = document.getElementById("email").value.trim();
+
+
+        if (name == ""|| ===""){
+            alert("Plese fill in both Name and Email fields.");
+            event.preventDefault();
+        }
+        })
+
+        
     </body>
 </html>
