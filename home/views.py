@@ -22,3 +22,9 @@ def reservations_view(request):
     except Exception as e:
         return HttpResponse("An unexpected error occured", status=500)
 
+def home(request):
+    response = request.get("http://127.0.0.1:800/api/menu")
+    menu_item = response.json() if response.status_code == 200 else []
+
+    return render(request, "homepage.html", {"menu_item": menu_item})
+
