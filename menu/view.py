@@ -1,6 +1,17 @@
 from django,shortcuts import render
 from .models import MenuItem
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-def menu_list(request):
-    items = MenuItem.objects.all()
-    return render(request, 'menu_item.html', {"menu_item": items})
+def MenuAPIView(APIView):
+    def get(self, request):
+        menu_items = MenuItem.objects.all()
+        menu = [
+            {
+                "name": item.name,
+                "description": item.description
+                "price": item.price
+            }
+            for item in menu_items
+        ]
+        return Response(menu)
