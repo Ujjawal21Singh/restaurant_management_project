@@ -3,6 +3,8 @@ from django.comfig.urls import render
 from django.view.generic import TemplateView
 from .models import Reservation
 from django.db import DatabaseError 
+import requests
+from restaurant_management import settings
 # Create your views here.
 
 def custom_404(request, exception):
@@ -23,8 +25,15 @@ def reservations_view(request):
         return HttpResponse("An unexpected error occured", status=500)
 
 def home(request):
-    response = request.get("http://127.0.0.1:800/api/menu")
-    menu_item = response.json() if response.status_code == 200 else []
-
-    return render(request, "homepage.html", {"menu_item": menu_item})
+    try:
+        response = request.get("http://127.0.0.1:800/api/menu")
+        menu_item = response.json() if response.status_code == 200 else []
+    except Exception:
+        menu_item=[]
+    
+    context = {
+        "reservation_name": settings.RESTAURANT_NAME,
+        "menu_item": menu_item,
+    }
+    return render(request, "homepage.html")
 
