@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Our Menu</title>
+        <style>
+            body {font-family: Arial, sans-sarif;}
+        </style>
+    </head>
+    <body>
+        <h1>Our menu</h1>
+        <div class="menu-container">
+            {% for item in items %}
+                <div class="menu-item">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                    {% endif %}
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.description }}</p>
+                    <p class="price">{{ item.price }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
