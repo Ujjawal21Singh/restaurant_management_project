@@ -16,3 +16,11 @@ def Location(models.Model):
 
     def __str__(self):
         return f"{self.addrss_line1}, {self,city}, {self.state} {self.zip_code}"
+
+class Restaurant(models.Model):
+    name = models.CharField(max_length=200)
+    address = Location()
+    opening_house = models.JSONField(default=dict)
+
+    def __str__(self):
+        return self.name
