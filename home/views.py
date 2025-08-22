@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.comfig.urls import render
 from django.view.generic import TemplateView
-from .models import Reservation, 
+from .models import Restaurant 
 from django.db import DatabaseError 
 import requests
 from restaurant_management import settings
@@ -25,7 +25,7 @@ def reservations_view(request):
         return HttpResponse("An unexpected error occured", status=500)
 
 def home(request):
-    restaurant = Restau
+    restaurant = Restaurant.objects.first()
     try:
         response = request.get("http://127.0.0.1:800/api/menu")
         menu_item = response.json() if response.status_code == 200 else []
@@ -36,5 +36,5 @@ def home(request):
         "reservation_name": settings.RESTAURANT_NAME,
         "menu_item": menu_item,
     }
-    return render(request, "homepage.html", )
+    return render(request, "homepage.html", {"restaurant:" restaurant})
 
